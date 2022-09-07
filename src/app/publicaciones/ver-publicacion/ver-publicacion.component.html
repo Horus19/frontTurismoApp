@@ -1,0 +1,20 @@
+<div class="publicacion">
+  <h1>
+    {{ publicacion.titulo }}
+  </h1>
+
+  <img [src]="imageSource" alt="" width="300px">
+
+  <p>
+    {{ publicacion.descripcion }}
+  </p>
+
+  <span>{{ publicacion.precio }}</span>
+
+  <form action="" [formGroup]="formComentario">
+    <label for="comentario">Agregar comentario</label>
+    <textarea class="comentario" name="comentario" id="comentario" cols="30" rows="10" formControlName="comentario"></textarea>
+    <button mat-button>Comentar</button>
+  </form>
+</div>
+
