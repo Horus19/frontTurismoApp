@@ -33,9 +33,6 @@ export class PublicacionesComponent implements OnInit {
   }
 
   abrirPublicacion(publicacion: Publicacion) {
-    this.publicacionService.getPulicacion(publicacion.id).subscribe(
-      (publicacion) => {
-        this.router.navigate([`publicacion/${publicacion.id}`], {relativeTo: this.route});
-      });
+    this.router.navigate([`publicacion/${publicacion.id}`], {relativeTo: this.route});
   }
 }

@@ -1,20 +1,61 @@
-<div class="publicacion">
-  <h1>
-    {{ publicacion.titulo }}
-  </h1>
+<mat-card class="publicacion" *ngIf="publicacion">
+  <div>
+    <h1>
+      {{ publicacion.titulo }}
+    </h1>
 
-  <img [src]="imageSource" alt="" width="300px">
+    <p>
+      {{ publicacion.descripcion }}
+    </p>
+  </div>
 
-  <p>
-    {{ publicacion.descripcion }}
-  </p>
+  <mat-card class="content-price">
+    <mat-card-content class="content-image">
+      <img [src]="imageSource" alt="" width="300px" />
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <mat-icon>paid</mat-icon>
+        <span>{{ publicacion.precio }}</span>
+        <button mat-raised-button color="accent">COMPRAR</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</mat-card>
 
-  <span>{{ publicacion.precio }}</span>
+<mat-progress-bar color="primary" mode="query" *ngIf="!publicacion"></mat-progress-bar>
 
-  <form action="" [formGroup]="formComentario">
-    <label for="comentario">Agregar comentario</label>
-    <textarea class="comentario" name="comentario" id="comentario" cols="30" rows="10" formControlName="comentario"></textarea>
-    <button mat-button>Comentar</button>
+<div>
+  <h3>{{reviews.length}} comentarios</h3>
+
+  <form [formGroup]="formComentario">
+    <mat-form-field class="comentario" appearance="fill">
+      <mat-label>Agregar comentario</mat-label>
+      <textarea
+        matInput
+        cols="20"
+        rows="10"
+        formControlName="comentario"
+      ></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="comentar()">Comentar</button>
   </form>
-</div>
 
+  <div class="reviews-container">
+    <div *ngFor="let item of reviews">
+      <div class="content-review">
+        <div class="left">
+          <h3>{{ item.usuario }}</h3>
+        </div>
+        <div class="right">
+          <span>{{ item.comentario }}</span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+</div>

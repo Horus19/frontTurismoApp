@@ -5,8 +5,7 @@
 export const environment = {
   production: false,
   urlBack: "http://localhost:8080/api/",
-  //TODO: agregar back de node para reseñas
-  backResenias: "nodeBacK"
+  urlBackReviews: "http://localhost:3000/api/"
 };
 
 /*
