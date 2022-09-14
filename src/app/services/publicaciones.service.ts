@@ -23,13 +23,13 @@ export class PublicacionesService {
 
   getReviews(idPublicacion: number) {
     return this.http.get<Reviews[]>(
-      `${environment.urlBackReviews}reviewsByid?id=${idPublicacion}`
+      `${"environment.urlBackReviews"}reviewsByid?id=${idPublicacion}`
     );
   }
 
   createComentario(comentario: Reviews) {
     return this.http.post<Reviews>(
-      `${environment.urlBackReviews}addreviews`,
+      `${"environment.urlBackReviews"}addreviews`,
       comentario
     );
   }
